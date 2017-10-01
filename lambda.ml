@@ -10,10 +10,10 @@ let pervasives = [
 let test_eval () =
   [
     Lit 2, Lit 2;
-    (*App (Abs ("x", Id "x"), Lit 2), Lit 2;*)
+    App (Abs ("x", Id "x"), Lit 2), Lit 2;
     App (App (Id "add", Lit 2), Lit 2), Lit 4;
     App (App (Id "gt", Lit 1), Lit 2), Lit 0;
-    App (App (App (Id "if", Lit 0), Lit 2), Lit 3), Lit 0;
+    App (App (App (Id "if", Lit 0), Lit 2), Lit 3), Lit 3;
     let cond = App (App (Id "gt", Lit 3), Lit 1) in
       App (App (App (Id "if", cond), Lit 10), Lit 5), Lit 10;
   ] |> List.iter @@ fun (case, expected) ->
