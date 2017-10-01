@@ -35,12 +35,9 @@ let test_eval () =
 
 
 let () =
-  test_eval ()
-  (*
+  test_eval ();
   let program =
-    let id = Abs ("x", Id "x") in
-    App (id, App (id, Lit 42))
+    App (App (Id "add", Lit 2), Lit 3)
   in
-  print_endline @@ to_string program;
-  print_endline @@ to_string @@ eval pervasives program
-  *)
+  print_endline @@ string_of_t program;
+  print_endline @@ string_of_t @@ eval pervasives program
